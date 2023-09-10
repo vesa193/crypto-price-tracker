@@ -9,12 +9,23 @@ import SelectInput from './ui-components/form/SelectInput';
 import Loader from './ui-components/loader/Loader';
 import SearchAppBar from './ui-components/search-bar/SearchAppBar';
 
+export type Image = {
+    large?: string;
+    small?: string;
+    thumb?: string;
+};
+
+export type Description = {
+    en: string;
+};
+
 export type ICryptoCurrency = {
     id: string;
-    image: string;
+    image: string | Image;
     name: string;
     symbol: string;
     current_price: number;
+    description?: Description;
 };
 
 export type ICryptoCurrencyData = {

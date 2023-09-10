@@ -54,7 +54,7 @@ function TableData({
                                 <TableCell component="th" scope="row">
                                     <Avatar
                                         alt={cryptoCurrency?.name}
-                                        src={cryptoCurrency?.image}
+                                        src={cryptoCurrency?.image as string}
                                     />
                                 </TableCell>
                                 <TableCell component="th" scope="row">

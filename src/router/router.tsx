@@ -8,7 +8,7 @@ export const router = createBrowserRouter([
         element: <App />,
     },
     {
-        path: 'crypto-currency/:currencyId',
+        path: ':currencyId',
         element: <CryptoCurrencyDetails />,
     },
 ]);

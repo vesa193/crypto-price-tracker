@@ -54,3 +54,7 @@ It should look like on the image underneath.
 
 - Back button in the header component, should redirect user to main screen.
 - Chart is able to provide informations on mouseover every single point on the chart.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

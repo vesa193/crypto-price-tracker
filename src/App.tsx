@@ -9,9 +9,10 @@ import SelectInput from './ui-components/form/SelectInput';
 import Loader from './ui-components/loader/Loader';
 import SearchAppBar from './ui-components/search-bar/SearchAppBar';
 import { config } from './config';
+import { SearchContext } from './context/SearchContext';
 
 function App() {
-    const [searchTerm, setSearchTerm] = useState('');
+    const { searchValue } = useContext(SearchContext);
     const { currency, setCurrency } = useContext(CurrencySelectionContext);
     const [selectedCurrencyId, setSelectedCurrency] = useState('');
     const {
@@ -31,10 +32,10 @@ function App() {
         (cryotoCurrency: ICryptoCurrency) =>
             cryotoCurrency.name
                 .toLowerCase()
-                .startsWith(searchTerm.toLowerCase()) ||
+                .startsWith(searchValue.toLowerCase()) ||
             cryotoCurrency.symbol
                 .toLowerCase()
-                .startsWith(searchTerm.toLowerCase())
+                .startsWith(searchValue.toLowerCase())
     );
 
     if (error) {
@@ -48,7 +49,7 @@ function App() {
     return (
         <>
             <Loader isLoading={loading as boolean} />
-            <SearchAppBar {...{ searchTerm, setSearchTerm }} />
+            <SearchAppBar />
             <Grid container flexDirection="row" p={4}>
                 <Grid item xs={12} sm={12} md={12}>
                     <SelectInput {...{ currency, setCurrency }} />

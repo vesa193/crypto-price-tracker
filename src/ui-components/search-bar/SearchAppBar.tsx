@@ -1,4 +1,5 @@
-import { SearchAppBarProps } from '@/App';
+import { SearchContext } from '@/context/SearchContext';
+import { SearchAppBarProps } from '@/types/types';
 import SearchIcon from '@mui/icons-material/Search';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -6,6 +7,7 @@ import InputBase from '@mui/material/InputBase';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { alpha, styled } from '@mui/material/styles';
+import { useContext } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -50,7 +52,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-function SearchAppBar({ searchTerm, setSearchTerm }: SearchAppBarProps) {
+function SearchAppBar() {
+    const { searchValue, setSearchValue } = useContext(SearchContext);
+
     return (
         <Box sx={{ flexGrow: 0 }}>
             <AppBar position="static">
@@ -69,14 +73,14 @@ function SearchAppBar({ searchTerm, setSearchTerm }: SearchAppBarProps) {
                         </SearchIconWrapper>
                         <StyledInputBase
                             placeholder="Search for currency name or symbol"
-                            value={searchTerm}
+                            value={searchValue}
                             inputProps={{
                                 'aria-label': 'search',
                                 onChange: (
                                     e: React.ChangeEvent<
                                         HTMLInputElement | HTMLTextAreaElement
                                     >
-                                ) => setSearchTerm(e.target.value as string),
+                                ) => setSearchValue(e.target.value as string),
                             }}
                         />
                     </Search>

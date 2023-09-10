@@ -1,22 +1,27 @@
+import { ICryptoCurrency, ICryptoCurrencyData } from '@/App';
+import { formatCurrency } from '@/utils/formatCurrency';
+import { Avatar } from '@mui/material';
+import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import Toolbar from '@mui/material/Toolbar';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Avatar, Typography } from '@mui/material';
-import { ICryptoCurrency } from '@/App';
+import Toolbar from '@mui/material/Toolbar';
+import { useNavigate } from 'react-router-dom';
 
-function TableData({ cryptoCurrencyData }: any) {
+function TableData({
+    filterCryptoCurrencyData,
+    currency,
+}: ICryptoCurrencyData) {
+    const navigate = useNavigate();
+
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
-                    <Toolbar>
-                        <Typography variant="h5">Crypto Currencies</Typography>
-                    </Toolbar>
+                    <Toolbar>Crypto Currencies</Toolbar>
                     <TableRow>
                         <TableCell align="left">
                             <strong>Logo</strong>
@@ -33,7 +38,7 @@ function TableData({ cryptoCurrencyData }: any) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {cryptoCurrencyData.map(
+                    {filterCryptoCurrencyData.map(
                         (cryptoCurrency: ICryptoCurrency) => (
                             <TableRow
                                 key={cryptoCurrency.id}
@@ -41,6 +46,9 @@ function TableData({ cryptoCurrencyData }: any) {
                                     '&:last-child td, &:last-child th': {
                                         border: 0,
                                     },
+                                }}
+                                onClick={() => {
+                                    navigate(cryptoCurrency.id);
                                 }}
                             >
                                 <TableCell component="th" scope="row">
@@ -56,7 +64,9 @@ function TableData({ cryptoCurrencyData }: any) {
                                     {cryptoCurrency?.symbol}
                                 </TableCell>
                                 <TableCell align="left">
-                                    {cryptoCurrency?.current_price}
+                                    {formatCurrency(currency).format(
+                                        cryptoCurrency?.current_price
+                                    )}
                                 </TableCell>
                             </TableRow>
                         )

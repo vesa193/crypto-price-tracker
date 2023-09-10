@@ -1,5 +1,5 @@
 import App from '@/App';
-import CryptoCurrencyDetails from '@/pages/CryptoCurrencyDetails';
+import CryptoCurrencyDetailsPage from '@/pages/CryptoCurrencyDetailsPage';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -9,6 +9,6 @@ export const router = createBrowserRouter([
     },
     {
         path: ':currencyId',
-        element: <CryptoCurrencyDetails />,
+        element: <CryptoCurrencyDetailsPage />,
     },
 ]);

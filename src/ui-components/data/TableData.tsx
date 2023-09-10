@@ -1,4 +1,4 @@
-import { ICryptoCurrency, ICryptoCurrencyData } from '@/App';
+import { ICryptoCurrency, ICryptoCurrencyData } from '@/types/types';
 import { formatCurrency } from '@/utils/formatCurrency';
 import { Avatar } from '@mui/material';
 import Paper from '@mui/material/Paper';
@@ -38,14 +38,16 @@ function TableData({
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {filterCryptoCurrencyData.map(
+                    {filterCryptoCurrencyData?.map(
                         (cryptoCurrency: ICryptoCurrency) => (
                             <TableRow
+                                hover
                                 key={cryptoCurrency.id}
                                 sx={{
                                     '&:last-child td, &:last-child th': {
                                         border: 0,
                                     },
+                                    cursor: 'pointer',
                                 }}
                                 onClick={() => {
                                     navigate(cryptoCurrency.id);

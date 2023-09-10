@@ -1,27 +1,64 @@
-# React + TypeScript + Vite
+# Crypto Price Track
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Project runs on React code together with Vite local development server.
+Appliction gives option to user, review the top 6 crypto currencies and look details, actially variations about history prices through chart.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before actuall installation, user should have compatible node version.
+Version should be greater or equal to 16 version, as mentioned in `package.json` file.
 
-## Expanding the ESLint configuration
+`"engines": {
+    "node": ">=16"
+},`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+After the repository of the project fetched on user's local machine, user should finish following steps:
+
+- Install the packages within the project.
+
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Run the app
+
+- Needs provide this command for running the application.
+
+```bash
+    npm run dev
+```
+
+- After this command, terminal should display _<http://localhost:4000>_ link where's application run.
+
+## Usage
+
+- Initial screen of the app display all of the crypto currencies in the table with following details (name, symbol, current-price, logo).
+
+<div style="width:80px ; height:80px">
+![Intial screen](/src/assets/screenshoots/cpt_screen_1.png)
+<div>
+
+- User is able to select desired currency from select-option input with provided options (EUR, USD, GBP) and display forrmated price along with currency sign.
+
+<div style="width:80px ; height:80px">
+![Currency selection input](/src/assets/screenshoots/cpt_screen_2.png)
+<div>
+
+- Over the search input, user needs to provide the search term and search item per name or symbol.
+It should look like on the image underneath.
+
+<div style="width:80px ; height:80px">
+![Currency Search Input](/src/assets/screenshoots/cpt_screen_3.png)
+<div>
+
+- When user clicks on certain item in the table, should be redirected to CryptoCurrencyDetailsPage, it displays all of details about currency clicked with chart prices history.
+
+<div style="width:80px ; height:80px">
+![Crypto Currency Details](/src/assets/screenshoots/cpt_screen_4.png)
+<div>
+
+- Back button in the header component, should redirect user to main screen.
+- Chart is able to provide informations on mouseover every single point on the chart.

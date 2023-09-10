@@ -1,5 +1,5 @@
 import { SelectInputProps } from '@/App';
-import { Currencies } from '@/configTypes';
+import { Currencies } from '@/types/currenciesEnum';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';

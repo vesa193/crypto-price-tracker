@@ -37,9 +37,7 @@ npm install
 
 - Initial screen of the app display all of the crypto currencies in the table with following details (name, symbol, current-price, logo).
 
-<div style="width:80px ; height:80px">
 ![Intial screen](/src/assets/screenshoots/cpt_screen_1.png)
-<div>
 
 - User is able to select desired currency from select-option input with provided options (EUR, USD, GBP) and display forrmated price along with currency sign.
 

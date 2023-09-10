@@ -1,5 +1,5 @@
 import { SearchContext } from '@/context/SearchContext';
-import { SearchAppBarProps } from '@/types/types';
+import CloseIcon from '@mui/icons-material/Close';
 import SearchIcon from '@mui/icons-material/Search';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,6 +12,7 @@ import { useContext } from 'react';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     display: 'flex',
+    alignItems: 'center',
     flex: 1,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -82,6 +83,10 @@ function SearchAppBar() {
                                     >
                                 ) => setSearchValue(e.target.value as string),
                             }}
+                        />
+                        <CloseIcon
+                            sx={{ pr: 2, cursor: 'pointer' }}
+                            onClick={() => setSearchValue('')}
                         />
                     </Search>
                 </Toolbar>

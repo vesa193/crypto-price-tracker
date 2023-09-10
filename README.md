@@ -41,22 +41,16 @@ npm install
 
 - User is able to select desired currency from select-option input with provided options (EUR, USD, GBP) and display forrmated price along with currency sign.
 
-<div style="width:80px ; height:80px">
 ![Currency selection input](/src/assets/screenshoots/cpt_screen_2.png)
-<div>
 
 - Over the search input, user needs to provide the search term and search item per name or symbol.
 It should look like on the image underneath.
 
-<div style="width:80px ; height:80px">
 ![Currency Search Input](/src/assets/screenshoots/cpt_screen_3.png)
-<div>
 
 - When user clicks on certain item in the table, should be redirected to CryptoCurrencyDetailsPage, it displays all of details about currency clicked with chart prices history.
 
-<div style="width:80px ; height:80px">
 ![Crypto Currency Details](/src/assets/screenshoots/cpt_screen_4.png)
-<div>
 
 - Back button in the header component, should redirect user to main screen.
 - Chart is able to provide informations on mouseover every single point on the chart.
